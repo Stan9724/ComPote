@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/8f90da0031.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <title>Com'Pote</title>
+  </head>
+
+  <body>
+    <div id="block_page">
+      <header>
+        <div id="titre_principal">
+          <div id="logo">
+            <img src="https://i.postimg.cc/FKK7WjyY/1208548.png" alt="logo com'pote" title="logo">
+            <h1>Com'Pote</h1>
+          </div>
+          <h2>Eco Friendly</h2>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="formations.html">Formations / Métiers</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="banner" style="background-image: url(https://image.shutterstock.com/image-vector/earthworms-growth-plants-cute-worms-600w-1979698775.jpg);">
+      </div>
+
+      <section>
+        <h1>Comment faire son compost ?</h1>
+      </section>
+
+      <section class="docompost"">
+          <article>
+            <h2 class=" articles">Bien choisir son bac </h2>
+        <img src="https://image.shutterstock.com/image-vector/decorative-wooden-plastic-compost-bins-600w-1621705060.jpg" alt="Img Article" class="img_how" />
+        <p>Choisir un bac à compost pratique, stable et bien ventilé</p>
+        </article>
+
+        <article>
+          <h2>Comment le remplir</h2>
+          <img src="https://image.shutterstock.com/image-vector/flat-style-vegetable-kitchen-scraps-600w-1418262992.jpg" alt="Img Article" class="img_how" />
+          <p>Remplir le bac de couches successives de végétaux secs (feuilles, brindilles...) et de déchets humides (épluchures de légumes, résidus de tonte, herbe...)</p>
+        </article>
+
+        <article>
+          <h2>Fonctionnement</h2>
+          <img src="https://image.shutterstock.com/image-vector/image-compost-bin-garden-vector-600w-1918070039.jpg" alt="Img Article" class="img_how" />
+          <p>Veiller à l'aération du tas de compost et à son taux d'humidité. Conditions obligatoires pour que le processus fonctionne.</p>
+        </article>
+
+        <article>
+          <h2>Récolte</h2>
+          <img src="https://image.shutterstock.com/image-vector/illustration-family-filling-compost-bin-600w-174759572.jpg" alt="Img Article" class="img_how" />
+          <p>Récolter le compost au bout d'environ 6 mois à 1 an.</p>
+        </article>
+
+      </section>
+      <hr>
+      <section>
+        <h1>Trouver votre composteur</h1>
+      </section>
+      <div id="map">
+        <!-- Ici s'affichera la carte -->
+      </div>
+
+      <!-- Fichiers Javascript -->
+      <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+      <script type="text/javascript">
+        // On initialise la latitude et la longitude de Paris (centre de la carte)
+        var composteurs = {
+          "Place Sainte Eulalie": {
+            "lat": 44.833245,
+            "lon": -0.576956
+          },
+          "Jardin l'éphémère": {
+            "lat": 44.817028,
+            "lon": -0.540384
+          },
+          "Parc Bordelais": {
+            "lat": 44.851884,
+            "lon": -0.602813
+          }
+        };
+        var carte = L.map('map').setView([44.837789, -0.57918], 13);
+        // Fonction d'initialisation de la carte
+        function initMap() {
+          // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+
+          // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+          L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            // Il est toujours bien de laisser le lien vers la source des données
+            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+            minZoom: 1,
+            maxZoom: 20
+          }).addTo(carte);
+
+          var icone = L.icon({
+            iconUrl: "https://cdn-icons-png.flaticon.com/512/1251/1251470.png?w=826",
+            iconSize: [50, 50],
+            iconAnchor: [25, 50]
+          })
+
+          for (composteur in composteurs) {
+            var marker = L.marker([composteurs[composteur].lat, composteurs[composteur].lon], {
+              icon: icone
+            }).addTo(carte);
+            marker.bindPopup("<p>" + composteur + "</p>")
+          }
+        }
+        window.onload = function() {
+          // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+          initMap();
+        };
+
+      </script>
+        <footer>
+          <h2>© 2022 - Com'Pote Company & Com'Pote Design</h2>
+      </footer>
+    </div>
+  </body>
+</html>

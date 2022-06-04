@@ -1,0 +1,201 @@
+@import url(contactForm.css);
+@import url(footer.css);
+@import url(navbar.css);
+
+body {
+    background-color: whitesmoke;
+    color: #181818;
+}
+
+hr {
+    margin-top: 50px;
+}
+
+#block_page {
+    margin: auto;
+}
+
+#titre_principal
+{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    padding-top: 2px;
+}
+
+#logo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#logo img
+{
+    width: 55px;
+    height: 55px;
+}
+
+/*Header CSS*/
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: solid #181818;
+    background-color: rgba(118, 243, 118, 0.85);
+}
+
+header h1
+{
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 2em;
+    font-weight: normal;
+    margin: 0 0 0 10px;
+}
+
+header h2
+{
+    font-family: 'Oswald', cursive;
+    font-size: 1.2em;
+    font-style: italic;
+    margin-top: 0px;
+    font-weight: normal;
+    color: #181818;
+    opacity: 80%;
+    letter-spacing: 0.3px;
+}
+
+.banner {
+    object-fit: fill;
+    background-position: center;
+    padding: 150px 0;
+  }
+
+/*Section CSS*/
+
+section
+{
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+}
+
+section h1, footer h1
+{
+    font-family: 'Oswald', cursive;
+    font-size: 2.5em;
+    font-weight: normal;
+    text-align: center;
+    
+}
+
+.docompost {
+  gap: 15px;
+}
+
+/*Article CSS*/
+
+article
+{
+    text-align: center;
+}
+
+article h2 {
+    font-family: 'Oswald', cursive;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+article p
+{
+    font-family: 'Oswald', cursive;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.img_how
+{
+    margin: auto;
+    width: 250px;
+    height: 250px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Map CSS*/
+
+#map{ 
+width: 100%;
+height: 35vh;
+}
+
+/* Vidéos CSS*/
+
+.video {
+    display: flex;
+}
+  
+.videos h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+  
+.videos p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+  
+.videos .video {
+    padding: 16px;
+}
+
+
+/* Listes CSS*/
+
+li {
+    font-family: 'Oswald', cursive;
+    font-size: 1.5em;
+}
+
+.li-title {
+font-size: x-large;
+font-weight: normal;
+text-decoration: underline;
+}
+
+  
+
+/* Responsive */
+
+@media all and (max-width: 1024px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+}
+
+@media all and (max-width: 1024px) {
+
+    section
+    {
+        flex-direction: column;
+    }
+
+    article
+    {
+        width: auto;
+        margin-bottom: 15px;
+    }
+}
